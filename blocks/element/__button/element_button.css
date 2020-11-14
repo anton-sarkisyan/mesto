@@ -1,0 +1,5 @@
+.element__button {
+  background: url("../../../images/like.svg") center no-repeat;
+  padding: 0;
+  border: none;
+}
