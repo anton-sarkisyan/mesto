@@ -1,0 +1,26 @@
+.edit-form__close-button {
+  background: transparent url('../../../images/Close-Icon.svg') no-repeat center;
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -36px;
+  right: -34px;
+  cursor: pointer;
+  outline: none;
+  transition: opacity .5s ease-in-out;
+}
+
+.edit-form__close-button:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .edit-form__close-button {
+    top: -50px;
+    right: 0px;
+  }
+}

@@ -1,0 +1,30 @@
+.edit-form__submit-button {
+  margin-top: 18px;
+  margin-bottom: 37px;
+  padding: 0;
+  min-height: 50px;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: opacity .5s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.edit-form__submit-button:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: .8;
+}
+
+@media screen and (max-width: 768px) {
+  .edit-form__submit-button {
+    min-height: 46px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+}
