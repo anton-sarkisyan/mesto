@@ -1,4 +1,4 @@
-.edit-form__items {
+.popup__items {
   width: 430px;
   background-color: #fff;
   position: relative;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .edit-form__items {
+  .popup__items {
     max-width: 282px;
   }
 }

@@ -1,5 +1,6 @@
-.edit-form {
-  display: none;
+.popup {
+  visibility: hidden;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -8,4 +9,6 @@
   left: 0;
   right: 0;
   background-color: rgb(0, 0, 0, .5);
+  opacity: 0;
+  transition: visibility .4s, opacity .4s linear;
 }

@@ -1,4 +1,4 @@
-.edit-form__item {
+.popup__item {
   border: none;
   width: calc(100% - 36px * 2);
   margin: 0 auto;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .edit-form__item{
+  .popup__item{
     width: calc(100% - 22px * 2);
   }
 }

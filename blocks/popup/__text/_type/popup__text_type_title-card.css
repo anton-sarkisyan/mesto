@@ -1,0 +1,5 @@
+@media screen and (max-width: 768px) {
+  .popup__text_type_title-card  {
+    margin-bottom: 20px;
+  }
+}
