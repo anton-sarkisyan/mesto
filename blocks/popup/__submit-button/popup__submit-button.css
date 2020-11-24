@@ -1,4 +1,4 @@
-.edit-form__submit-button {
+.popup__submit-button {
   margin-top: 18px;
   margin-bottom: 37px;
   padding: 0;
@@ -16,14 +16,15 @@
   box-sizing: border-box;
 }
 
-.edit-form__submit-button:hover {
+.popup__submit-button:hover {
   opacity: .8;
 }
 
 @media screen and (max-width: 768px) {
-  .edit-form__submit-button {
+  .popup__submit-button {
     min-height: 46px;
     margin-top: 15px;
     margin-bottom: 25px;
+    font-size: 14px;
   }
 }
