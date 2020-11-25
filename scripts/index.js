@@ -70,8 +70,7 @@ const createCard = (cardElement) => {
   //удаление карточки
   const cardButtonDelete = templateCard.querySelector('.element__button_type_delete');
   cardButtonDelete.addEventListener('click', evt => {
-    const buttonDelete = evt.target.closest('.element');
-    buttonDelete.remove();
+    evt.target.closest('.element').remove();
   });
 
   // открытие фотографии карточки
