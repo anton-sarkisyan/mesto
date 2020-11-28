@@ -47,4 +47,7 @@
 @import url('../blocks/popup/__submit-button/_type/popup__submit-button_type_add-form.css');
 @import url('../blocks/popup/__text/_type/popup__text_type_title-card.css');
 @import url('../blocks/popup/__text/_type/popup__text_type_url-card.css');
-@import url('../blocks/popup/__close-button/_type/popup__close-button_type_add-form.css')
+@import url('../blocks/popup/__close-button/_type/popup__close-button_type_add-form.css');
+@import url('../blocks/popup/__text//_type/popup__text_type_error.css');
+@import url('../blocks/popup/__error/popup__error.css');
+@import url('../blocks/popup/__submit-button/_inactive/popup__submit-button_inactive.css');

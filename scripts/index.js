@@ -3,6 +3,7 @@ const editForm = document.querySelector('.popup');
 const formAddCard = document.querySelector('.popup_type_add-card');
 const popupOpenPhoto = document.querySelector('.popup_type_open-photo');
 
+
 // кнопки открытия
 const editButton = document.querySelector('.profile__edit-button');
 const addCardButton = document.querySelector('.profile__add-button');
@@ -20,6 +21,7 @@ const jobInput = document.querySelector('.popup__text_type_job');
 const nameAddCard = document.querySelector('.popup__text_type_title-card');
 const urlAddCard = document.querySelector('.popup__text_type_url-card');
 const photoCardTitle = document.querySelector('.element__title');
+
 
 const initialCards = [
   {
@@ -110,10 +112,21 @@ const handlerFormAddCard = evt => {
 formAddCard.addEventListener('submit', handlerFormAddCard);
 
 // функция открытия формы
-const openedForm = form => form.classList.add('popup_opened');
+const openedForm = form => {
+  form.addEventListener('click', closePopupClickOverlay);
+  form.addEventListener('keydown', closePopupKeydownEsc);
+  form.classList.add('popup_opened');
+}
 
 // функция закрытия формы
-const closeForm = form => form.classList.remove('popup_opened');
+const closeForm = form => {
+  form.removeEventListener('click', closePopupClickOverlay);
+  form.removeEventListener('keydown', closePopupKeydownEsc);
+  form.classList.remove('popup_opened');
+  clearError();
+  form.querySelector('.popup__items').reset();
+}
+
 
 // открытие формы редактирования
 editButton.addEventListener('click', () => {
@@ -123,8 +136,12 @@ editButton.addEventListener('click', () => {
 });
 
 closeButton.addEventListener('click', () => closeForm(editForm));
-addCardButton.addEventListener('click', () => openedForm(formAddCard));
-closeButtonAddForm.addEventListener('click', () => closeForm(formAddCard));
+addCardButton.addEventListener('click', () => {
+  const submitButtonAddForm = document.querySelector('.popup__submit-button_type_add-form');
+  submitButtonAddForm.classList.add('popup__submit-button_inactive');
+  openedForm(formAddCard)
+});
+closeButtonAddForm.addEventListener('click', () => {closeForm(formAddCard)});
 closeButtonOpenPhoto.addEventListener('click', () => closeForm(popupOpenPhoto));
 
 // Обработчик формы редактирования
@@ -136,6 +153,19 @@ editForm.addEventListener('submit', evt => {
   closeForm(editForm);
 });
 
+// функция закрытия при клике оверлей
+function closePopupClickOverlay(evt) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (evt.target.classList.contains('popup_opened')) {
+    closeForm(activePopup);
+  }
+}
 
-
+// функция закрытия при нажатии клавиши ESC
+function closePopupKeydownEsc(evt) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (evt.keyCode === 27) {
+    closeForm(activePopup);
+   }
+}
 
