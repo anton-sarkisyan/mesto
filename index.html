@@ -51,8 +51,10 @@
         <button class="popup__close-button" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <fieldset class="popup__item">
-          <input class="popup__text popup__text_type_name" type="text" name="firstname" value=" ">
-          <input class="popup__text popup__text_type_job" name="job" type="text" value=" ">
+          <input id="firstname"  class="popup__text popup__text_type_name" type="text" name="firstname" value=" " required minlength="2" maxlength="40">
+          <span id="firstname-error" class="popup__error"></span>
+          <input id="job" class="popup__text popup__text_type_job" name="job" type="text" value=" " required minlength="2" maxlength="200">
+          <span id="job-error" class="popup__error"></span>
           <button class="popup__submit-button" type="submit">Сохранить</button>
         </fieldset>
       </form>
@@ -63,8 +65,10 @@
       <button class="popup__close-button popup__close-button_type_add-form" type="button"></button>
       <h3 class="popup__title popup__title_type_add-card">Новое место</h3>
       <fieldset class="popup__item popup__item_type_add-card">
-        <input class="popup__text popup__text_type_title-card" type="titleCard" name="titleCard" value="" placeholder="Название">
-        <input class="popup__text popup__text_type_url-card" type="urlCard" name="urlCard" value="" placeholder="Ссылка на картинку">
+        <input id="titleCard" class="popup__text popup__text_type_title-card" type="text" name="titleCard" value="" placeholder="Название" required minlength="2" maxlength="30">
+        <span id="titleCard-error" class="popup__error"></span>
+        <input id="urlCard" class="popup__text popup__text_type_url-card" type="url" name="urlCard" value="" placeholder="Ссылка на картинку" required>
+        <span id="urlCard-error" class="popup__error"></span>
         <button class="popup__submit-button popup__submit-button_type_add-form" type="submit">Создать</button>
       </fieldset>
     </form>
@@ -79,6 +83,7 @@
   </div>
 </div>
 
+  <script src="scripts/validate.js"></script>
   <script src="scripts/index.js"></script>
 </body>
 </html>
