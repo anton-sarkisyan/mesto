@@ -45,12 +45,16 @@ function enableValidation(config) {
 
 function toggleButtonState(inputList, buttonElement, config) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.setAttribute("disabled", true);
+    disabledSubmitButton(buttonElement, config);
  } else {
-    buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.removeAttribute("disabled");
+  buttonElement.classList.remove(config.inactiveButtonClass);
+  buttonElement.removeAttribute("disabled");
   }
+ }
+
+ const disabledSubmitButton = (buttonElement, config) => {
+  buttonElement.classList.add(config.inactiveButtonClass);
+  buttonElement.setAttribute("disabled", true);
  }
 
 function hasInvalidInput(inputList) {
@@ -71,16 +75,10 @@ enableValidation(validateConfigPopup);
 
 const clearError = () => {
   const typeError = document.querySelectorAll('.popup__text_type_error');
-  const buttonDisabled = document.querySelectorAll('.popup__submit-button_inactive');
   const spanError = document.querySelectorAll('.popup__error');
 
   typeError.forEach((inputError) => {
     inputError.classList.remove('popup__text_type_error');
-  });
-
-  buttonDisabled.forEach((buttonInactive) => {
-    buttonInactive.removeAttribute("disabled");
-    buttonInactive.classList.remove('popup__submit-button_inactive');
   });
 
   spanError.forEach(span => {

@@ -114,19 +114,20 @@ formAddCard.addEventListener('submit', handlerFormAddCard);
 // функция открытия формы
 const openedForm = form => {
   form.addEventListener('click', closePopupClickOverlay);
-  form.addEventListener('keydown', closePopupKeydownEsc);
+  document.addEventListener('keydown', closePopupKeydownEsc);
   form.classList.add('popup_opened');
 }
 
 // функция закрытия формы
 const closeForm = form => {
   form.removeEventListener('click', closePopupClickOverlay);
-  form.removeEventListener('keydown', closePopupKeydownEsc);
+  document.removeEventListener('keydown', closePopupKeydownEsc);
   form.classList.remove('popup_opened');
   clearError();
-  form.querySelector('.popup__items').reset();
+  if (!form.classList.contains('popup_type_open-photo')) {
+    form.querySelector('.popup__items').reset();
+  }
 }
-
 
 // открытие формы редактирования
 editButton.addEventListener('click', () => {
@@ -137,11 +138,12 @@ editButton.addEventListener('click', () => {
 
 closeButton.addEventListener('click', () => closeForm(editForm));
 addCardButton.addEventListener('click', () => {
-  const submitButtonAddForm = document.querySelector('.popup__submit-button_type_add-form');
-  submitButtonAddForm.classList.add('popup__submit-button_inactive');
-  openedForm(formAddCard)
+  const submitButtonAddCard = document.querySelector('.popup__submit-button_type_add-form');
+  disabledSubmitButton(submitButtonAddCard, validateConfigPopup);
+  openedForm(formAddCard);
 });
-closeButtonAddForm.addEventListener('click', () => {closeForm(formAddCard)});
+
+closeButtonAddForm.addEventListener('click', () => closeForm(formAddCard));
 closeButtonOpenPhoto.addEventListener('click', () => closeForm(popupOpenPhoto));
 
 // Обработчик формы редактирования
@@ -164,7 +166,7 @@ function closePopupClickOverlay(evt) {
 // функция закрытия при нажатии клавиши ESC
 function closePopupKeydownEsc(evt) {
   const activePopup = document.querySelector('.popup_opened');
-  if (evt.keyCode === 27) {
+  if (evt.key === 'Escape') {
     closeForm(activePopup);
    }
 }
