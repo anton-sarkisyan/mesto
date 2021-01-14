@@ -85,20 +85,22 @@ const closePopup = form => {
 
 // открытие формы редактирования
 editButton.addEventListener('click', () => {
-  openPopup(editForm)
-  clearError();
+  openPopup(editForm);
+  formEdit.clearErrors();
+  formEdit.enableValidation();
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
 });
 
 closeButton.addEventListener('click', () => closePopup(editForm));
-addCardButton.addEventListener('click', () => {
-  disabledSubmitButton(submitButtonAddCard);
-  openPopup(formAddCard);
-  clearError();
-});
 
 closeButtonAddForm.addEventListener('click', () => closePopup(formAddCard));
+addCardButton.addEventListener('click', () => {
+  formAddCardValid.disabledSubmitButton(submitButtonAddCard);
+  openPopup(formAddCard);
+  formAddCardValid.clearErrors();
+});
+
 closeButtonOpenPhoto.addEventListener('click', () => closePopup(popupOpenPhoto));
 
 // Обработчик формы редактирования
@@ -161,24 +163,5 @@ formAddCard.addEventListener('submit', handlerFormAddCard);
 // валидация форм
 const formEdit = new FormValidator(validateConfigPopup, formEditValidate);
 const formAddCardValid = new FormValidator(validateConfigPopup, formAddCardValidate);
-formEdit.enableValidation();
+
 formAddCardValid.enableValidation();
-
-// очистка форм от ошибок
-const clearError = () => {
-  const typeError = document.querySelectorAll('.popup__text_type_error');
-  const spanError = document.querySelectorAll('.popup__error');
-
-  typeError.forEach((inputError) => {
-    inputError.classList.remove('popup__text_type_error');
-  });
-
-  spanError.forEach(span => {
-    span.textContent = '';
-  });
-}
-
-const disabledSubmitButton = (buttonElement) => {
-  buttonElement.classList.add(validateConfigPopup.inactiveButtonClass);
-  buttonElement.setAttribute("disabled", true);
-}
