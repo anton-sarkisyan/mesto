@@ -6,8 +6,8 @@ import FormValidator from './FormValidator.js';
 const editForm = document.querySelector('.popup_type_edit-profile');
 const formAddCard = document.querySelector('.popup_type_add-card');
 const popupOpenPhoto = document.querySelector('.popup_type_open-photo');
-const formEditValidate = document.querySelector('.popup__item_type_edit-popup');
-const formAddCardValidate = document.querySelector('.popup__item_type_add-card');
+const formEditValidate = document.querySelector('.popup__items_type_edit-popup');
+const formAddCardValidate = document.querySelector('.popup__items_type_add-card');
 
 // кнопки открытия
 const editButton = document.querySelector('.profile__edit-button');
@@ -70,9 +70,6 @@ const openPopup = popup => {
   popup.addEventListener('click', closePopupClickOverlay);
   document.addEventListener('keydown', closePopupKeydownEsc);
   popup.classList.add('popup_opened');
-  if (!popup.classList.contains('popup_type_open-photo')) {
-    popup.querySelector('.popup__items').reset();
-  }
 }
 
 // функция закрытия формы

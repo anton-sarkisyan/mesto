@@ -61,6 +61,7 @@ export default class FormValidator {
     this._spanError.forEach(span => {
       span.textContent = '';
     });
+    this._form.reset();
   };
 
   disabledSubmitButton = () => {
