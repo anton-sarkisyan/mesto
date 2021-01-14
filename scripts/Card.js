@@ -1,10 +1,9 @@
-import { openedForm, popupOpenPhoto, popupDescription, openBigPhoto } from './index.js'
-
-export default class CreateCard {
-  constructor(cardElement, cardSelector) {
+export default class Card {
+  constructor(cardElement, cardSelector, handleCardClick) {
     this._name = cardElement.name;
     this._image = cardElement.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplateCard = () => {
@@ -39,14 +38,8 @@ export default class CreateCard {
       evt.target.closest('.element').remove();
     });
 
-    _cardOpenPhoto.addEventListener('click', evt => {
-      const openPhoto = evt.target;
-
-      openBigPhoto.src = openPhoto.src;
-      openBigPhoto.alt = openPhoto.alt;
-      popupDescription.textContent = this._name;
-
-      openedForm(popupOpenPhoto);
+    _cardOpenPhoto.addEventListener('click', () => {
+      this._handleCardClick(this._name,  this._image)
     });
   }
 }
