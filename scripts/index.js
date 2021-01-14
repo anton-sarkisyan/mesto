@@ -29,7 +29,6 @@ const cardGrid = document.querySelector('.elements__grid');
 
 const popupDescription = document.querySelector('.popup__description');
 const openBigPhoto = document.querySelector('.popup__big-photo');
-const submitButtonAddCard = document.querySelector('.popup__submit-button_type_add-form');
 
 const initialCards = [
   {
@@ -67,27 +66,27 @@ const handleCardClick = (name, link) => {
 }
 
 // функция открытия формы
-const openPopup = form => {
-  form.addEventListener('click', closePopupClickOverlay);
+const openPopup = popup => {
+  popup.addEventListener('click', closePopupClickOverlay);
   document.addEventListener('keydown', closePopupKeydownEsc);
-  form.classList.add('popup_opened');
+  popup.classList.add('popup_opened');
+  if (!popup.classList.contains('popup_type_open-photo')) {
+    popup.querySelector('.popup__items').reset();
+  }
 }
 
 // функция закрытия формы
-const closePopup = form => {
-  form.removeEventListener('click', closePopupClickOverlay);
+const closePopup = popup => {
+  popup.removeEventListener('click', closePopupClickOverlay);
   document.removeEventListener('keydown', closePopupKeydownEsc);
-  form.classList.remove('popup_opened');
-  if (!form.classList.contains('popup_type_open-photo')) {
-    form.querySelector('.popup__items').reset();
-  }
+  popup.classList.remove('popup_opened');
 }
 
 // открытие формы редактирования
 editButton.addEventListener('click', () => {
   openPopup(editForm);
   formEdit.clearErrors();
-  formEdit.enableValidation();
+  formEdit.activateSubmitButton();
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
 });
@@ -96,9 +95,9 @@ closeButton.addEventListener('click', () => closePopup(editForm));
 
 closeButtonAddForm.addEventListener('click', () => closePopup(formAddCard));
 addCardButton.addEventListener('click', () => {
-  formAddCardValid.disabledSubmitButton(submitButtonAddCard);
-  openPopup(formAddCard);
   formAddCardValid.clearErrors();
+  formAddCardValid.disabledSubmitButton();
+  openPopup(formAddCard);
 });
 
 closeButtonOpenPhoto.addEventListener('click', () => closePopup(popupOpenPhoto));
@@ -163,5 +162,5 @@ formAddCard.addEventListener('submit', handlerFormAddCard);
 // валидация форм
 const formEdit = new FormValidator(validateConfigPopup, formEditValidate);
 const formAddCardValid = new FormValidator(validateConfigPopup, formAddCardValidate);
-
+formEdit.enableValidation();
 formAddCardValid.enableValidation();
