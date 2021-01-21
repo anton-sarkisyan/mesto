@@ -1,14 +1,18 @@
 import Card from '../components/Card.js'
-import {
-  validateConfigPopup, initialCards, formEditValidate, formAddCardValidate,
-  editButton, addCardButton, nameInput, jobInput
-} from '../utils/constants.js';
+import { validateConfigPopup, initialCards } from '../utils/constants.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import './index.css';
+
+const formEditValidate = document.querySelector('.popup__items_type_edit-popup');
+const formAddCardValidate = document.querySelector('.popup__items_type_add-card');
+const editButton = document.querySelector('.profile__edit-button');
+const addCardButton = document.querySelector('.profile__add-button');
+const nameInput = document.querySelector('.popup__text_type_name');
+const jobInput = document.querySelector('.popup__text_type_job');
 
 // класс открытия карточек
 const popupWithImage = new PopupWithImage('.popup_type_open-photo');
@@ -23,8 +27,7 @@ popupWithImage.setEventListeners();
 const initialCardList = new Section({
   items: initialCards,
   renderer: (item) => {
-    const initialCard = new Card(item, '.template-elements', handleCardClick);
-    const cardElement = initialCard.createNewCard();
+    const cardElement = createCard(item);
     initialCardList.addItem(cardElement, false);
   }
 }, '.elements__grid');
@@ -50,13 +53,18 @@ popupEditProfile.setEventListeners();
 const addCardPopup = new PopupWithForm('.popup_type_add-card', {
   handleFormSubmit: (data) => {
     const newCard = { name: data.titleCard, link: data.urlCard }
-    const card = new Card(newCard, '.template-elements', handleCardClick);
-    const cardElement = card.createNewCard();
+    const cardElement = createCard(newCard);
     initialCardList.addItem(cardElement, true);
   }
 })
 
 addCardPopup.setEventListeners();
+
+function createCard(item) {
+  const card = new Card(item, '.template-elements', handleCardClick);
+  const cardElement = card.createNewCard();
+  return cardElement;
+}
 
 // слушатель кнопки формы редактирования
 editButton.addEventListener('click', () => {

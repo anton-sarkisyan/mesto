@@ -7,13 +7,6 @@ export const validateConfigPopup = {
   spanError: '.popup__error',
 }
 
-export const formEditValidate = document.querySelector('.popup__items_type_edit-popup');
-export const formAddCardValidate = document.querySelector('.popup__items_type_add-card');
-export const editButton = document.querySelector('.profile__edit-button');
-export const addCardButton = document.querySelector('.profile__add-button');
-export const nameInput = document.querySelector('.popup__text_type_name');
-export const jobInput = document.querySelector('.popup__text_type_job');
-
 export const initialCards = [
   {
       name: 'Алтай',

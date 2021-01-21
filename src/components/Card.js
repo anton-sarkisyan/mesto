@@ -30,17 +30,23 @@ export default class Card {
     const _cardButtonDelete = this._templateCard.querySelector('.element__button_type_delete');
     const _cardOpenPhoto = this._templateCard.querySelector('.element__photo');
 
-    _cardButtonLike.addEventListener('click', evt => {
-      evt.target.classList.toggle('element__button_active');
-    });
+    _cardButtonLike.addEventListener('click', this._handlerButtonLike.bind(this));
 
-    _cardButtonDelete.addEventListener('click', evt => {
-      evt.target.closest('.element').remove();
-    });
+    _cardButtonDelete.addEventListener('click', this._handlerButtonDelete.bind(this));
 
-    _cardOpenPhoto.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._image)
-    });
+    _cardOpenPhoto.addEventListener('click', this._handlerOpenPhoto.bind(this));
+  }
+
+  _handlerButtonLike(evt) {
+    evt.target.classList.toggle('element__button_active');
+  }
+
+  _handlerButtonDelete(evt) {
+    evt.target.closest('.element').remove();
+  }
+
+  _handlerOpenPhoto() {
+    this._handleCardClick(this._name, this._image)
   }
 }
 
