@@ -39,7 +39,7 @@ export default class Card {
     });
 
     _cardOpenPhoto.addEventListener('click', () => {
-      this._handleCardClick(this._name,  this._image)
+      this._handleCardClick(this._name, this._image)
     });
   }
 }
