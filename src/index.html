@@ -15,11 +15,15 @@
 
     <main>
       <section class="profile">
-        <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар профиля" class="profile__avatar">
+        <div class="profile__items">
+          <div class="profile__avatar-overlay">
+            <img src=" " alt="Аватар профиля" class="profile__avatar">
+          </div>
+        </div>
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title"></h1>
           <button type="button" class="profile__edit-button"></button>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
         </div>
         <button type="button" class="profile__add-button"></button>
       </section>
@@ -33,6 +37,7 @@
               <div class="element__description">
                 <h2 class="element__title"></h2>
                 <button type="button" class="element__button"></button>
+                <span class="element__count-like"></span>
               </div>
             </li>
           </template>
@@ -50,36 +55,66 @@
         <button class="popup__close-button" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
         <fieldset class="popup__item popup__item_type_edit-popup">
-          <input id="firstname"  class="popup__text popup__text_type_name" type="text" name="firstname" value=" " required minlength="2" maxlength="40">
+          <input id="firstname" class="popup__text popup__text_type_name" type="text" name="firstname" value=" "
+            required minlength="2" maxlength="40">
           <span id="firstname-error" class="popup__error"></span>
-          <input id="job" class="popup__text popup__text_type_job" name="job" type="text" value=" " required minlength="2" maxlength="200">
+          <input id="job" class="popup__text popup__text_type_job" name="job" type="text" value=" " required
+            minlength="2" maxlength="200">
           <span id="job-error" class="popup__error"></span>
-          <button class="popup__submit-button" type="submit">Сохранить</button>
+          <button class="popup__submit-button popup__submit-button_type_edit-profile" type="submit">Сохранить</button>
         </fieldset>
       </form>
     </div>
 
-  <div class="popup popup_type_add-card">
-    <form class="popup__items popup__items_type_add-card" name="addForm">
-      <button class="popup__close-button popup__close-button_type_add-form" type="button"></button>
-      <h3 class="popup__title popup__title_type_add-card">Новое место</h3>
-      <fieldset class="popup__item popup__item_type_add-card">
-        <input id="titleCard" class="popup__text popup__text_type_title-card" type="text" name="titleCard" value="" placeholder="Название" required minlength="2" maxlength="30">
-        <span id="titleCard-error" class="popup__error"></span>
-        <input id="urlCard" class="popup__text popup__text_type_url-card" type="url" name="urlCard" value="" placeholder="Ссылка на картинку" required>
-        <span id="urlCard-error" class="popup__error"></span>
-        <button class="popup__submit-button popup__submit-button_type_add-form" type="submit">Создать</button>
-      </fieldset>
-    </form>
-  </div>
-
-  <div class="popup popup_type_open-photo">
-    <div class="popup__items popup__items_type_open-photo" name="openPhotoForm">
-      <button class="popup__close-button popup__close-button_type_open-photo" type="button"></button>
-      <img class="popup__big-photo" src="#" alt="#">
-      <p class="popup__description"></p>
+    <div class="popup popup_type_add-card">
+      <form class="popup__items popup__items_type_add-card" name="addForm">
+        <button class="popup__close-button popup__close-button_type_add-form" type="button"></button>
+        <h3 class="popup__title popup__title_type_add-card">Новое место</h3>
+        <fieldset class="popup__item popup__item_type_add-card">
+          <input id="titleCard" class="popup__text popup__text_type_title-card" type="text" name="titleCard" value=""
+            placeholder="Название" required minlength="2" maxlength="30">
+          <span id="titleCard-error" class="popup__error"></span>
+          <input id="urlCard" class="popup__text popup__text_type_url-card" type="url" name="urlCard" value=""
+            placeholder="Ссылка на картинку" required>
+          <span id="urlCard-error" class="popup__error"></span>
+          <button class="popup__submit-button popup__submit-button_type_add-form" type="submit">Создать</button>
+        </fieldset>
+      </form>
     </div>
+
+    <div class="popup popup_type_open-photo">
+      <div class="popup__items popup__items_type_open-photo" name="openPhotoForm">
+        <button class="popup__close-button popup__close-button_type_open-photo" type="button"></button>
+        <img class="popup__big-photo" src="#" alt="#">
+        <p class="popup__description"></p>
+      </div>
+    </div>
+
+
+    <div class="popup popup_type_delete-card">
+      <form class="popup__items popup__items_type_delete-card" name="popupDeleteCard">
+        <button class="popup__close-button" type="button"></button>
+        <h3 class="popup__title popup__title_type_delete-card">Вы уверены?</h3>
+        <div class="popup__item">
+          <button class="popup__submit-button" type="submit">Да</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="popup popup_type_avatar">
+      <form class="popup__items popup__items_type_avatar" name="popupAvatar">
+        <button class="popup__close-button popup__close-button_type_avatar" type="button"></button>
+        <h3 class="popup__title popup__title_type_avatar">Обновить аватар</h3>
+        <fieldset class="popup__item popup__item_type_avatar">
+          <input id="urlAvatar" class="popup__text popup__text_type_avatar" type="url" name="urlAvatar" value=""
+            placeholder="Ссылка на картинку" required>
+          <span id="urlAvatar-error" class="popup__error"></span>
+          <button class="popup__submit-button popup__submit-button_type_avatar" type="submit">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+
   </div>
-</div>
 </body>
+
 </html>
