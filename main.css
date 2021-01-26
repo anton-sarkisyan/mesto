@@ -4,9 +4,10 @@
 .page__container{max-width:1280px;min-width:320px;margin:0 auto;font-family:Inter,Arial,Helvetica,sans-serif;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 .header{width:calc(100% - 400px);min-height:74px;border-bottom:1px solid rgba(84,84,84,.7);padding-top:45px;margin:0 auto}@media screen and (max-width:1279px){.header{width:calc(100% - 200px)}}@media screen and (max-width:1024px){.header{width:calc(100% - 100px)}}@media screen and (max-width:768px){.header{width:100%;padding-top:28px;min-height:56px}}
 @media screen and (max-width:768px){.header__logo{margin-left:27px;max-width:104px}}
-.profile{display:grid;align-items:center;margin:0 auto;width:calc(100% - 400px);padding-top:40px;grid-template-columns:repeat(2,minmax(-webkit-min-content,-webkit-max-content)) 1fr;grid-template-columns:repeat(2,minmax(min-content,max-content)) 1fr;gap:30px}@media screen and (max-width:1279px){.profile{width:calc(100% - 200px)}}@media screen and (max-width:1024px){.profile{width:calc(100% - 100px)}}@media screen and (max-width:768px){.profile{display:flex;flex-direction:column;width:calc(100% - 38px);padding-top:42px;gap:0}}
+.profile{display:grid;align-items:center;margin:0 auto;width:calc(100% - 400px);padding-top:40px;grid-template-columns:repeat(2,minmax(-webkit-min-content,-webkit-max-content)) 1fr;grid-template-columns:repeat(2,minmax(min-content,max-content)) 1fr;gap:30px;position:relative}@media screen and (max-width:1279px){.profile{width:calc(100% - 200px)}}@media screen and (max-width:1024px){.profile{width:calc(100% - 100px)}}@media screen and (max-width:768px){.profile{display:flex;flex-direction:column;width:calc(100% - 38px);padding-top:42px;gap:0}}
 .profile__add-button{background:url(images/add-button.bed8c136e13907f5eefb.svg) 50% no-repeat;border:2px solid #fff;width:150px;height:50px;padding:0;justify-self:end;transition:opacity .5s ease-in-out;cursor:pointer}.profile__add-button:hover{opacity:.6}@media screen and (max-width:768px){.profile__add-button{width:282px;margin-top:36px;background-size:16px 16px}}
-.profile__avatar{max-width:120px;max-height:120px;border-radius:50%}
+.profile__avatar-overlay:after{content:" ";background:url(images/editProfile.a086f758840ae814ecde.svg) 26px 26px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;width:26px;height:26px}
+.profile__avatar{max-width:120px;height:120px;border-radius:50%;-o-object-fit:cover;object-fit:cover;width:100%;cursor:pointer;position:relative;z-index:1;transition:opacity .4s linear}.profile__avatar:hover{opacity:.2}
 .profile__edit-button{background:url(images/profile_edit-button.6c7bf05444b9793fdf6e.svg) 50% no-repeat;border:1px solid #fff;width:24px;height:24px;padding:0;margin-left:18px;transition:opacity .5s ease-in-out;cursor:pointer}.profile__edit-button:hover{opacity:.6}@media screen and (max-width:768px){.profile__edit-button{width:18px;height:18px;margin-left:10px}}
 .profile__info{display:grid;grid-template-columns:repeat(2,minmax(-webkit-min-content,-webkit-max-content));grid-template-columns:repeat(2,minmax(min-content,max-content));align-items:center}@media screen and (max-width:768px){.profile__info{margin-top:26px}}
 .profile__subtitle{color:#fff;font-size:18px;line-height:22px;font-weight:400;margin:16px 0 0;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:294px}@media screen and (max-width:768px){.profile__subtitle{font-size:14px;line-height:17px;text-align:center;margin:14px 0 0;max-width:189px}}
@@ -43,6 +44,9 @@
 .popup__text_type_error{border-bottom:1px solid red;margin-bottom:0}
 .popup__error{color:red;font-size:12px;line-height:15px;display:block;margin-bottom:30px}@media screen and (max-width:768px){.popup__items_type_add-card .popup__error{margin-bottom:20px}}
 .popup__submit-button_inactive{opacity:.2;background-color:#fff;border:2px solid #000;color:#000}.popup__submit-button_inactive:hover{opacity:.2}
+.popup__title_type_delete-card{margin:34px 36px 20px}
+.element__count-like{grid-column-start:2;text-align:center;margin-top:3px;margin-bottom:0;font-size:13px;line-height:16px;font-weight:400}
+.profile__items{position:relative}
 
 
 /*# sourceMappingURL=main.css.map*/
