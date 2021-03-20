@@ -32,4 +32,5 @@ npm run dev
 * CSS3
 * Javascript
 * Webpack
+* Babel
 
